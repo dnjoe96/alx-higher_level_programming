@@ -4,7 +4,7 @@ def remove_char_at(sr, n):
     j = 0
     for i in range(len(sr)):
         if i != n:
-            j+=1
+            j += 1
         else:
             continue
         new_str += sr[i]
