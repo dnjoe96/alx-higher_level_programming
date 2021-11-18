@@ -4,4 +4,4 @@ if __name__ == "__main__":
     isum = 0
     for n in argv[1:]:
         isum += int(n)
-    print("{}".format(isum))
+    print("{:d}".format(isum))
