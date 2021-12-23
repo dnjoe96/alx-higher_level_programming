@@ -16,7 +16,7 @@ class Student:
                 'age': self.age,
                 }
 
-        if attrs == None:
+        if attrs is None:
             return my_dict
         new_dict = {}
         for item in attrs:
