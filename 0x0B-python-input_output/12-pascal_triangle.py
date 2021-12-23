@@ -3,6 +3,7 @@
 
 
 def pascal_triangle(n):
+    """generate the pascal trinagle"""
     mainlist = []
 
     for i in range(1, n + 1):
@@ -17,6 +18,4 @@ def pascal_triangle(n):
                 sublist.append(mainlist[-1][j] + mainlist[-1][j + 1])
             sublist.append(1)
             mainlist.append(sublist)
-        
     return mainlist
-   
