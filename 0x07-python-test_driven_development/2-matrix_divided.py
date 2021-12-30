@@ -14,8 +14,7 @@ def matrix_divided(matrix, div):
     mainlist = []
     for idx, row in enumerate(matrix):
         if type(row) is not list:
-            raise TypeError("matrix must be a matrix (list of lists) of \
-                    integers/floats")
+            raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
         nsize = len(row)
         if nsize != psize and psize != 0:
             raise TypeError('Each row of the matrix must have the same size')
@@ -25,8 +24,7 @@ def matrix_divided(matrix, div):
         sub = []
         for a in row:
             if type(a) not in [int, float]:
-                raise TypeError('matrix must be a matrix (list of lists) \
-                        of integers/floats')
+                raise TypeError('matrix must be a matrix (list of lists) of integers/floats')
 
             result = a / div
             if result == float('inf') or result == -float('inf'):
