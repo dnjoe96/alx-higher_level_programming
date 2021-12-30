@@ -1,113 +1,77 @@
-The 2-matrix_divided module
-============================
+The 3-say_my_name module
+=========================
 
-Using``matrix_divided``
-------------------------
+Using ``say_my_name``
+---------------------
 
-Importing matrix_divided from 2-matrix_divided
+Importing say_my_name from 3-say_my_name
 
-    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
 
-Now Testing:-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Now Testing :-**-*-*-*-*-*-*-*-*-*-*--*-*-*-*-*-*-*-*-*-*
 
-    testing if one of the inner list numbers is a string
+    TestCase_1: pass the function two strings
 
-    >>> r = matrix_divided([[1, 2, 3],[4, 5, '6']], 3) # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-        ...
-    TypeError: matrix must be a matrix (list of lists) of integers/floats
-    
-***************************************************
-
-    testing if one of the inner list numbers is a True
-
-    >>> r = matrix_divided([[1, True, 3],[4, 5, 6]], 3) # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-        ...
-    TypeError: matrix must be a matrix (list of lists) of integers/floats
-    
-***************************************************
-
-    testing if one of the inner list numbers is a False
-
-    >>> r = matrix_divided([[False, 2, 3],[4, 5, 6]], 3) # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-        ...
-    TypeError: matrix must be a matrix (list of lists) of integers/floats
-    
-***************************************************
-
-    testing if one of the inner list numbers is a float
-
-    >>> r = matrix_divided([[2.2, 2, 3],[4, 5, 6]], 2)
-    >>> print(r)
-    [[1.1, 1.0, 1.5], [2.0, 2.5, 3.0]]
+    >>> say_my_name('elmahdi', 'mamoun')
+    My name is elmahdi mamoun
 
 ***************************************************
 
-    testing if one of the inner lists length bigger than the other
+    TestCase_2: pass the function only the first string argument
 
-    >>> r = matrix_divided([[2.2, 2, 3],[4, 5, 6, 7]], 2) # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-        ...
-    TypeError: Each row of the matrix must have the same size
+    >>> say_my_name('elmahdi')
+    My name is elmahdi 
 
 ***************************************************
 
-    testing with a matrix that has list of integers only
+    TestCase_3: don't pass any arguments
 
-    >>> r = matrix_divided([[2, 2, 3],[4, 5, 6]], 2)
-    >>> print(r)
-    [[1.0, 1.0, 1.5], [2.0, 2.5, 3.0]]
-
-***************************************************
-
-    testing with a division number == 0
-
-    >>> r = matrix_divided([[2, 2, 3],[4, 5, 6]], 0)
-    Traceback (most recent call last):
-        ...
-    ZeroDivisionError: division by zero
-
-***************************************************
-
-    testing with a division number == '0' string
-
-    >>> r = matrix_divided([[2, 2, 3],[4, 5, 6]], '0')
-    Traceback (most recent call last):
-        ...
-    TypeError: div must be a number
-
-***************************************************
-
-    testing with a division number that makes results with lot of decimal places
-	like 3
-
-    >>> r = matrix_divided([[1, 2, 4],[5, 7, 8]], 3)
-    >>> print(r)
-    [[0.33, 0.67, 1.33], [1.67, 2.33, 2.67]]
-
-***************************************************
-
-    testing with no arguments
-
-    >>> r = matrix_divided() # doctest: +ELLIPSIS
+    >>> say_my_name() #doctest: +ELLIPSIS
     Traceback (most recent call last):
         ...
     TypeError: ...
 
 ***************************************************
 
-    testing with a division number float(inf)
+    TestCase_4: pass an integer in the first argument
 
-    >>> r = matrix_divided([[1, 2, 4],[5, 7, 8]], float('inf'))
-    >>> print(r)
-    [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+    >>> say_my_name(2) #doctest: +ELLIPSIS
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
 
 ***************************************************
-    testing with 1 arguments missing
 
-    >>> r = matrix_divided([[2, 1], [3, 4]]) # doctest: +ELLIPSIS
+    TestCase_5: pass an integer in the second argument
+
+    >>> say_my_name('elmahdi', 2) #doctest: +ELLIPSIS
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+***************************************************
+
+    TestCase_6: passing None in first argument
+
+    >>> say_my_name(None) #doctest: +ELLIPSIS
+    Traceback (most recent call last):
+        ...
+    TypeError: ...
+
+***************************************************
+
+    TestCase_7: pass it a boolean True
+
+    >>> say_my_name(True) #doctest: +ELLIPSIS
+    Traceback (most recent call last):
+        ...
+    TypeError: ...
+
+***************************************************
+
+    TestCase_8: pass it a boolean False
+
+    >>> say_my_name(False) #doctest: +ELLIPSIS
     Traceback (most recent call last):
         ...
     TypeError: ...
