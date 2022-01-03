@@ -8,7 +8,11 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """ The contructor """
+        """The contructor for the base class
+
+        Arg:
+            id (int): The id of the instance.
+        """
         if id is not None:
             self.id = id
         else:
@@ -16,15 +20,26 @@ class Base:
             self.id = Base.__nb_objects
 
     def to_json_string(list_dictionaries):
+        """Returns the json string representation of a list of dictionaries
+
+        Arg:
+            list_dictionaries (list): list of dictornaries
+        """
         if list_dictionaries is None:
             return "[]"
         for one in list_dictionaries:
             if type(one) is not dict:
-                raise TypeError("All elements of the list must be dictionaries")
+                raise TypeError("All elements of the list must be \
+                        dictionaries")
         return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """Writes the json representation of a list of objs to file
+
+        Arg:
+            list_objs (list): The list of objs
+        """
         filename = str(cls.__name__) + ".json"
         with open(filename, 'w') as f:
             if len(list_objs) == 0 or list_objs is None:
@@ -34,6 +49,11 @@ class Base:
                 f.write(Base.to_json_string(dlist))
 
     def from_json_string(json_string):
+        """Returns the list of the JSON string representation
+
+        Arg:
+            json_string (str): json str.
+        """
         if json_string is None:
             return []
         else:
@@ -42,15 +62,23 @@ class Base:
                 return obj
             else:
                 return [obj]
-    
+
     @classmethod
     def create(cls, **dictionary):
+        """returns an instance with all attributes already set.
+
+        Args:
+            **kwargs (dict): Key-value pair of instance attributes.
+        """
         obj = cls(1, 1)
         obj.update(**dictionary)
         return obj
 
     @classmethod
     def load_from_file(cls):
+        """Returns a list of instances, reading json attributes
+        from file <cls name>.json
+        """
         try:
             filename = cls.__name__ + ".json"
             with open(filename) as f:
@@ -60,7 +88,7 @@ class Base:
 
         dlist = Base.from_json_string(item)
 
-        return [cls.create(**obj) for obj in dlist] 
+        return [cls.create(**obj) for obj in dlist]
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
