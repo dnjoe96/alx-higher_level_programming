@@ -146,6 +146,7 @@ class Rectangle(Base):
         y = args[4] if len(args) > 4 else self.__y
         y = kwargs['y'] if 'y' in kwargs.keys() else y
 
+        self.id = i_d
         self.width = width
         self.height = height
         self.x = x
