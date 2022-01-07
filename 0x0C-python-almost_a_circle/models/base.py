@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Module for the base class """
 import json
+import turtle
 
 
 class Base:
@@ -130,3 +131,42 @@ class Base:
                 return [cls.create(**d) for d in list_dicts]
         except IOError:
             return []
+
+    def draw(list_rectangles, list_squares):
+        # turtle.left(90)
+        for one in list_rectangles:
+            w = one.width
+            h = one.height
+            turtle.setpos(one.x, one.y)
+
+            pos = turtle.pos()
+            # print("start at ", pos)
+            turtle.forward(w)
+            turtle.left(90)
+            turtle.forward(h)
+            turtle.left(90)
+            turtle.forward(w)
+            turtle.left(90)
+            turtle.forward(h)
+            turtle.left(90)
+            pos = turtle.pos()
+            # print("end at ", pos)
+            # turtle.setpos(abs(pos[0]) + w, abs(pos[1]) + 0)
+
+        for one in list_squares:
+            s = one.size
+
+            turtle.setpos(one.x, one.y)
+            pos = turtle.pos()
+            # print("start at ", pos)
+            turtle.forward(s)
+            turtle.left(90)
+            turtle.forward(s)
+            turtle.left(90)
+            turtle.forward(s)
+            turtle.left(90)
+            turtle.forward(s)
+            turtle.left(90)
+            pos = turtle.pos()
+            # print("end at ", pos)
+            # turtle.setpos(abs(pos[0]) + w, abs(pos[1]) + 0)
