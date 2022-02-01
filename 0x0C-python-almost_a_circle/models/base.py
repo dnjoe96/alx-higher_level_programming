@@ -131,8 +131,15 @@ class Base:
                 return [cls.create(**d) for d in list_dicts]
         except IOError:
             return []
-
+    
+    @staticmethod
     def draw(list_rectangles, list_squares):
+        """Drawing the shapes from the list with the turtle module
+
+        Args:
+            list_rectangles (list) - list of rectangle objects
+            list_squares (list) - list of squares
+        """
         # turtle.left(90)
         for one in list_rectangles:
             w = one.width
