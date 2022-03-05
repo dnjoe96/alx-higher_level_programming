@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Script to select all states"""
 
 if __name__ == "__main__":
     import MySQLdb
@@ -9,9 +10,11 @@ if __name__ == "__main__":
     #         passwd='clearance', db='hbtn_0e_0_usa')
     db = MySQLdb.connect(
             host='localhost',
+            port=3306,
             user=dbInfo[0],
             passwd=dbInfo[1],
-            db=dbInfo[2]
+            db=dbInfo[2],
+            charset='utf8'
             )
 
     cur = db.cursor()
