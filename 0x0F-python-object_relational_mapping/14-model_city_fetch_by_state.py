@@ -24,7 +24,7 @@ if __name__ == "__main__":
     session = Session()
 
     # join statement like this produces dictionary of lists
-    cities = session.query(State, City).filter(State.id == City.state_id).all()
+    cities = session.query(State, City).filter(State.id == City.state_id).order_by(City.id).all()
 
     for state, city in list(cities):
         print(f'{state.name}: ({city.id}) {city.name}')
