@@ -24,4 +24,5 @@ if __name__ == "__main__":
 
     state = session.query(State).first()
 
-    print(str(state.id) + ': ' + state.name)
+    if state:
+        print(str(state.id) + ': ' + state.name)
