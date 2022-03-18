@@ -5,9 +5,9 @@ if __name__ == '__main__':
     import urllib.request
 
     req = urllib.request.Request('https://alx-intranet.hbtn.io/status')
-    response = urllib.request.urlopen(req).read()
-
-    print('Body Response:')
-    print(f'\t- type: {type(response)}')
-    print(f'\t- content: {response}')
-    print(f'\t- utf8 content: {response.decode("utf-8")}')
+    with urllib.request.urlopen(req) as response: 
+        http = response.read()
+        print('Body Response:')
+        print(f'\t- type: {type(http)}')
+        print(f'\t- content: {http}')
+        print(f'\t- utf8 content: {http.decode("utf-8")}')
