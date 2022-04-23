@@ -1,1 +1,1 @@
-3
+$('header').addClass('red')
